@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!-- typeAliases非常重要，你在 具体的类的映射中，比如User.xml 中 resultType 就是对应这里的。要保持一致 
+<typeAlias alias="User" type="com.dwd.mybatis.model.User"/>-->
+<!-- 指定一个包名，MyBatis 会在包名下面搜索需要的 Java Bean -->
+<typeAliases>
+  <package name="com.dwd.mybatis.model"/>
+</typeAliases>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+       <property name="driver" value="com.mysql.jdbc.Driver"/>
+       <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis" />
+       <property name="username" value="root"/>
+       <property name="password" value=""/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="com/dwd/mybatis/inter/User.xml"/>
+  </mappers>
+</configuration>
